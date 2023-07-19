@@ -1,0 +1,12 @@
+name = "aggregate_content"
+main = "src/index.js"
+compatibility_date = "2023-07-19"
+
+[triggers]
+crons = [ "*/10 * * * *" ]
+
+[vars]
+# The necessary secrets are:
+# - SLACK_BOT_ACCESS_TOKEN
+# - SLACK_BOT_ACCESS_CHANNEL
+# Run `echo <VALUE> | wrangler secret put <NAME>` for each of these
