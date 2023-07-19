@@ -3,7 +3,7 @@ main = "src/index.js"
 compatibility_date = "2023-07-19"
 
 [triggers]
-crons = [ "*/30 * * * *" ]
+crons = [ "*/5 * * * *" ]
 
 kv_namespaces = [
   { binding = "CONNPASS_PROXY_KV", id = "" }
