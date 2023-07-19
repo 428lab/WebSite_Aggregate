@@ -1,3 +1,15 @@
+async function handleRequest(request) {
+  // Check if the request is for the desired URL
+  const url = new URL(request.url);
+  if (url.pathname === '/connpass') {
+    const storedData = await CONNPASS_PROXY_KV.get('connpassData', 'json');
+    return new Response(JSON.stringify(storedData), {
+      headers: { 'content-type': 'application/json' },
+    });
+  }
+  return new Response('Not found', { status: 404 });
+}
+
 async function triggerEvent(event) {
   const apiResponse = await fetch("https://connpass.com/api/v1/event/?series_id=9445&order=2&count=10", {
     headers: {
@@ -24,6 +36,10 @@ async function triggerEvent(event) {
 }
 
 // Initialize Worker
+addEventListener("fetch", (event) => {
+  event.respondWith(handleRequest(event.request));
+});
+
 addEventListener("scheduled", (event) => {
   event.waitUntil(triggerEvent(event));
 });
