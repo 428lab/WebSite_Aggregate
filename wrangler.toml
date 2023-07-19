@@ -2,9 +2,7 @@ name = "aggregate_content"
 main = "src/index.js"
 compatibility_date = "2023-07-19"
 
+kv_namespaces = [{ binding = "CONNPASS_PROXY_KV", id = "<KV_ID>", preview_id = "<KV_PREVIEW_ID>" }]
+
 [triggers]
 crons = [ "*/15 * * * *" ]
-
-kv_namespaces = [
-  { binding = "CONNPASS_PROXY_KV", id = "e765cdcb097644e49ddffe726a9586fc" }
-]
