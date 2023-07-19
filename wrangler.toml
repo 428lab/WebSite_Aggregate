@@ -1,0 +1,10 @@
+name = "aggregate_content"
+main = "src/index.js"
+compatibility_date = "2023-07-19"
+
+[triggers]
+crons = [ "*/15 * * * *" ]
+
+kv_namespaces = [
+  { binding = "CONNPASS_PROXY_KV", id = "" }
+]
