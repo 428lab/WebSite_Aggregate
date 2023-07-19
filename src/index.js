@@ -1,5 +1,4 @@
 async function triggerEvent(event) {
-  // 1. APIを叩いてデータを取得する
   const apiResponse = await fetch("https://connpass.com/api/v1/event/?series_id=9445&order=2&count=10");
   const apiData = await apiResponse.json();
   const formattedData = apiData.events.map(item => {
